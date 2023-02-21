@@ -1,9 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-
 import 'package:gradient_borders/gradient_borders.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -20,6 +17,7 @@ class OnboardingScreen extends StatelessWidget {
         width: screenWidth,
         height: screenHeight,
         child: Stack(
+          alignment: Alignment.center,
           children: [
             Positioned(
                 top: screenHeight * 0.1,
@@ -30,10 +28,10 @@ class OnboardingScreen extends StatelessWidget {
                   decoration: const BoxDecoration(
                       shape: BoxShape.circle, color: Color(0xFFFE53BB)),
                   child: BackdropFilter(
-                    filter: ImageFilter.blur(sigmaX: 200, sigmaY: 200),
+                    filter: ImageFilter.blur(sigmaX: 0, sigmaY: 0),
                     child: Container(
-                      height: 166,
-                      width: 166,
+                      height: 200,
+                      width: 200,
                       color: Colors.transparent,
                     ),
                   ),
@@ -57,8 +55,6 @@ class OnboardingScreen extends StatelessWidget {
                 )),
             SafeArea(
                 child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
                   height: screenHeight * 0.07,
@@ -91,15 +87,60 @@ class OnboardingScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(200)),
                 ),
                 SizedBox(height: screenHeight * 0.09),
-                Text(
-                  'Watch movies in\nvirtual reality',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
+                Text('Watch movies in\nvirtual reality',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
                       fontSize: 34,
                       color: Colors.white.withOpacity(0.85),
                       fontWeight: FontWeight.w700,
-                      fontFamily: 'SFPro'),
-                )
+                    )),
+                SizedBox(height: screenHeight * 0.03),
+                Text('Download and watch offline\nwherever you are',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white.withOpacity(0.75),
+                      fontWeight: FontWeight.w700,
+                    )),
+                SizedBox(height: screenHeight * 0.03),
+                Container(
+                  width: 160,
+                  height: 38,
+                  decoration: BoxDecoration(
+                      border: const GradientBoxBorder(
+                        gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [Color(0xFFFE53BB), Color(0xFF09FBD3)],
+                        ),
+                        width: 4,
+                      ),
+                      borderRadius: BorderRadius.circular(200)),
+                  child: Stack(children: [
+                    const Center(
+                      child: Text(
+                        'Sign up',
+                        style: TextStyle(fontSize: 14, color: Colors.white),
+                      ),
+                    ),
+                    Container(
+                      width: 160,
+                      height: 38,
+                      decoration: BoxDecoration(
+                          border: GradientBoxBorder(
+                            gradient: LinearGradient(
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                                colors: [
+                                  const Color(0xFFFE53BB).withOpacity(0.3),
+                                  const Color(0xFF09FBD3).withOpacity(0.4),
+                                ]),
+                            width: 20,
+                          ),
+                          borderRadius: BorderRadius.circular(200)),
+                    ),
+                  ]),
+                ),
               ],
             ))
           ],
