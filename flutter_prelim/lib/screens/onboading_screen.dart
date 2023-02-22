@@ -141,6 +141,23 @@ class OnboardingScreen extends StatelessWidget {
                     ),
                   ]),
                 ),
+                const Spacer(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(3, (index) {
+                    return Container(
+                      height: 7,
+                      width: 7,
+                      margin: const EdgeInsets.symmetric(horizontal: 4),
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: index == 0
+                              ? const Color(0xFF08F7FE)
+                              : Colors.white.withOpacity(0.2)),
+                    );
+                  }),
+                ),
+                SizedBox(height: screenHeight * 0.02)
               ],
             ))
           ],
