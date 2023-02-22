@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_prelim/screens/onboading_screen.dart';
 
+import 'screens/homescreen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         "/": (context) => const OnboardingScreen(),
-        // "home": (context) => const HomeScreen()
+        "home": (context) => const HomeScreen()
       },
     );
   }

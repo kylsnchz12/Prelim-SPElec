@@ -64,8 +64,9 @@ class OnboardingScreen extends StatelessWidget {
                   height: 328,
                   decoration: BoxDecoration(
                       image: const DecorationImage(
-                          image: AssetImage("images/image81.png"),
-                          fit: BoxFit.cover),
+                        image: AssetImage("images/image81.png"),
+                        fit: BoxFit.cover,
+                      ),
                       border: GradientBoxBorder(
                         gradient: LinearGradient(
                             begin: Alignment.topLeft,
@@ -103,43 +104,48 @@ class OnboardingScreen extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                     )),
                 SizedBox(height: screenHeight * 0.03),
-                Container(
-                  width: 160,
-                  height: 38,
-                  decoration: BoxDecoration(
-                      border: const GradientBoxBorder(
-                        gradient: LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: [Color(0xFFFE53BB), Color(0xFF09FBD3)],
-                        ),
-                        width: 4,
-                      ),
-                      borderRadius: BorderRadius.circular(200)),
-                  child: Stack(children: [
-                    const Center(
-                      child: Text(
-                        'Sign up',
-                        style: TextStyle(fontSize: 14, color: Colors.white),
-                      ),
-                    ),
-                    Container(
-                      width: 160,
-                      height: 38,
-                      decoration: BoxDecoration(
-                          border: GradientBoxBorder(
-                            gradient: LinearGradient(
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
-                                colors: [
-                                  const Color(0xFFFE53BB).withOpacity(0.3),
-                                  const Color(0xFF09FBD3).withOpacity(0.4),
-                                ]),
-                            width: 20,
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, "home");
+                  },
+                  child: Container(
+                    width: 160,
+                    height: 38,
+                    decoration: BoxDecoration(
+                        border: const GradientBoxBorder(
+                          gradient: LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [Color(0xFFFE53BB), Color(0xFF09FBD3)],
                           ),
-                          borderRadius: BorderRadius.circular(200)),
-                    ),
-                  ]),
+                          width: 4,
+                        ),
+                        borderRadius: BorderRadius.circular(200)),
+                    child: Stack(children: [
+                      const Center(
+                        child: Text(
+                          'Sign up',
+                          style: TextStyle(fontSize: 14, color: Colors.white),
+                        ),
+                      ),
+                      Container(
+                        width: 160,
+                        height: 38,
+                        decoration: BoxDecoration(
+                            border: GradientBoxBorder(
+                              gradient: LinearGradient(
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                  colors: [
+                                    const Color(0xFFFE53BB).withOpacity(0.3),
+                                    const Color(0xFF09FBD3).withOpacity(0.4),
+                                  ]),
+                              width: 20,
+                            ),
+                            borderRadius: BorderRadius.circular(200)),
+                      ),
+                    ]),
+                  ),
                 ),
                 const Spacer(),
                 Row(
