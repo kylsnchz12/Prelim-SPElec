@@ -28,7 +28,7 @@ class OnboardingScreen extends StatelessWidget {
                   decoration: const BoxDecoration(
                       shape: BoxShape.circle, color: Color(0xFFFE53BB)),
                   child: BackdropFilter(
-                    filter: ImageFilter.blur(sigmaX: 0, sigmaY: 0),
+                    filter: ImageFilter.blur(sigmaX: 200, sigmaY: 200),
                     child: Container(
                       height: 200,
                       width: 200,
