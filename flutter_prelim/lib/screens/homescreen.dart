@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
+import '../components/search_field.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -78,6 +80,28 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 )),
+            SafeArea(
+                bottom: false,
+                child: ListView(
+                  primary: true,
+                  children: const [
+                    SizedBox(
+                      height: 24,
+                    ),
+                    Text(
+                      "What would you\nlike to watch?",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 28,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700),
+                    ),
+                    SizedBox(height: 30),
+                    SearchFieldWidget(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                    )
+                  ],
+                ))
           ],
         ),
       ),
