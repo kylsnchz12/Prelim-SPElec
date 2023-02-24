@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_prelim/screens/movie_screen.dart';
 import 'package:flutter_prelim/screens/onboading_screen.dart';
 
 import 'screens/homescreen.dart';
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         "/": (context) => const OnboardingScreen(),
-        "home": (context) => const HomeScreen()
+        "home": (context) => const HomeScreen(),
+        "movie": (context) => const MovieDetailScreen()
       },
     );
   }

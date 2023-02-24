@@ -133,6 +133,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             mask = 'assets/ masks/mask.png';
                           }
                           return GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(context, "movie");
+                            },
                             child: Container(
                               margin:
                                   EdgeInsets.only(left: index == 0 ? 20 : 0),
@@ -176,6 +179,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             mask = 'assets/ masks/mask.png';
                           }
                           return GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(context, "movie");
+                            },
                             child: Container(
                               margin:
                                   EdgeInsets.only(left: index == 0 ? 20 : 0),
