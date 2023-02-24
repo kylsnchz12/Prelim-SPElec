@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
+import '../components/mask_image.dart';
 import '../components/search_field.dart';
+import '../models/movies.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -84,11 +86,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 bottom: false,
                 child: ListView(
                   primary: true,
-                  children: const [
-                    SizedBox(
+                  children: [
+                    const SizedBox(
                       height: 24,
                     ),
-                    Text(
+                    const Text(
                       "What would you\nlike to watch?",
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -96,9 +98,98 @@ class _HomeScreenState extends State<HomeScreen> {
                           color: Colors.white,
                           fontWeight: FontWeight.w700),
                     ),
-                    SizedBox(height: 30),
-                    SearchFieldWidget(
+                    const SizedBox(height: 30),
+                    const SearchFieldWidget(
                       padding: EdgeInsets.symmetric(horizontal: 20),
+                    ),
+                    const SizedBox(
+                      height: 38,
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 20),
+                      child: Text(
+                        'New Movies',
+                        style: TextStyle(color: Colors.white, fontSize: 17),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 37,
+                    ),
+                    SizedBox(
+                      height: 160,
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: newMovies.length,
+                        itemBuilder: ((context, index) {
+                          String mask;
+                          if (index == 0) {
+                            mask = 'assets/ masks/mask_firstIndex.png';
+                          } else if (index == newMovies.length - 1) {
+                            mask = 'assets/ masks/mask_lastIndex.png';
+                          } else {
+                            mask = 'assets/ masks/mask.png';
+                          }
+                          return GestureDetector(
+                            child: Container(
+                              margin:
+                                  EdgeInsets.only(left: index == 0 ? 20 : 0),
+                              height: 160,
+                              width: 142,
+                              child: MaskedImage(
+                                asset: newMovies[index].moviePoster,
+                                mask: mask,
+                              ),
+                            ),
+                          );
+                        }),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 38,
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 20),
+                      child: Text(
+                        'Upcoming Movies',
+                        style: TextStyle(color: Colors.white, fontSize: 17),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 37,
+                    ),
+                    SizedBox(
+                      height: 160,
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        itemCount: upcomingMovies.length,
+                        itemBuilder: ((context, index) {
+                          String mask;
+                          if (index == 0) {
+                            mask = 'assets/ masks/mask_firstIndex.png';
+                          } else if (index == newMovies.length - 1) {
+                            mask = 'assets/ masks/mask_lastIndex.png';
+                          } else {
+                            mask = 'assets/ masks/mask.png';
+                          }
+                          return GestureDetector(
+                            child: Container(
+                              margin:
+                                  EdgeInsets.only(left: index == 0 ? 20 : 0),
+                              height: 160,
+                              width: 142,
+                              child: MaskedImage(
+                                asset: upcomingMovies[index].moviePoster,
+                                mask: mask,
+                              ),
+                            ),
+                          );
+                        }),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 16,
                     )
                   ],
                 ))
