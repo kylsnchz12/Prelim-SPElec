@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:glassmorphism/glassmorphism.dart';
 
 import '../components/mask_image.dart';
 import '../components/search_field.dart';
@@ -194,6 +196,90 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ))
           ],
+        ),
+      ),
+      floatingActionButton: Container(
+        height: 64,
+        width: 64,
+        padding: const EdgeInsets.all(4),
+        margin: const EdgeInsets.only(top: 40),
+        decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            gradient: LinearGradient(colors: [
+              const Color(0xFFFE53BB).withOpacity(0.2),
+              const Color(0xFF09FBD3).withOpacity(0.2)
+            ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
+        child: Container(
+          height: 60,
+          width: 60,
+          padding: const EdgeInsets.all(4),
+          decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              gradient: LinearGradient(
+                  colors: [Color(0xFFFE53BB), Color(0xFF09FBD3)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight)),
+          child: RawMaterialButton(
+            onPressed: () {},
+            shape: const CircleBorder(),
+            fillColor: const Color(0xff404c57),
+            child: SvgPicture.asset('assets/Icon/plus.svg'),
+          ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: GlassmorphicContainer(
+        width: screenWidth,
+        height: 92,
+        borderRadius: 0,
+        linearGradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              const Color(0xFFFE53BB).withOpacity(0.1),
+              const Color(0xFF09FBD3).withOpacity(0.1)
+            ]),
+        border: 0,
+        blur: 30,
+        borderGradient: const LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xFFFE53BB), Color(0xFF09FBD3)]),
+        child: BottomAppBar(
+          color: Colors.transparent,
+          notchMargin: 4,
+          elevation: 0,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 8),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                    child: IconButton(
+                  onPressed: () {},
+                  icon: SvgPicture.asset('assets/Icon/home.svg'),
+                )),
+                Expanded(
+                    child: IconButton(
+                  onPressed: () {},
+                  icon: SvgPicture.asset('assets/Icon/watch.svg'),
+                )),
+                const Expanded(
+                  child: Text(' '),
+                ),
+                Expanded(
+                    child: IconButton(
+                  onPressed: () {},
+                  icon: SvgPicture.asset('assets/Icon/stack.svg'),
+                )),
+                Expanded(
+                    child: IconButton(
+                  onPressed: () {},
+                  icon: SvgPicture.asset('assets/Icon/download.svg'),
+                ))
+              ],
+            ),
+          ),
         ),
       ),
     );
